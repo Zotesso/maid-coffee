@@ -4,8 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -18,7 +21,7 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     FontAwesomeModule,
     SchoolModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,0 +1,45 @@
+.collapse{
+  transition: all 1s ease;
+}
+
+a{
+  color: white !important;
+  margin-left: 0.5rem;
+}
+
+.navbar-brand{
+  margin-left: 1rem;
+  font-size: 1.8rem;
+}
+
+.nav-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-link{
+  cursor: pointer;
+}
+
+.ng-fa-icon{
+  color: #FFF;
+  font-size: 1.5rem;
+}
+
+.flex-column{
+  z-index: 12;
+  background-color: rgb(54, 53, 53);
+  height: 90vh;
+  width: 100%;
+  max-width: 20rem;
+  max-height: 100vh;
+  position: absolute;
+}
+
+.menu-opts{
+  display: flex;
+  align-items: center;
+}

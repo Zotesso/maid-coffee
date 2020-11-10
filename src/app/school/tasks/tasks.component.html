@@ -1,0 +1,18 @@
+<ul class="list-group list-group-horizontal">
+  <div class="card" *ngFor="let task of schoolTasks">
+    <img
+    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1309&q=80"
+    class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.name }}</h5>
+      <p class="card-text">
+        Energia Necessária: {{ task.neededEnergy }}
+        <br>
+        Recompensas: <br>
+         -Conhecimento: {{ task.rewards.knowledge }} <br>
+         -Popularidade: {{ task.rewards.reliability }}
+      </p>
+      <button type="button" class="btn btn-outline-success">Realizar</button>
+    </div>
+  </div>
+</ul>

@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+  <button type="button" class="btn btn-light menu-opts" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+    <fa-icon [icon]="faFan" style="color: #333;"></fa-icon>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <a class="navbar-brand" routerLink="">Maid Coffee</a>
+
+  <button
+  class="navbar-toggler"
+  type="button"
+  (click)="toogleNavbar()"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+  class="collapse navbar-collapse"
+  id="navbarTogglerDemo02"
+  [ngClass]="{ 'show': navbarOpen}"
+  >
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]=""> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <fa-icon [icon]="faUser"></fa-icon>
+        <a class="nav-link" >Meu Perfil</a>
+      </li>
+      <li class="nav-item">
+        <fa-icon [icon]="faMap"></fa-icon>
+        <a class="nav-link" tabindex="-1">Missões</a>
+      </li>
+      <li class="nav-item" routerLink="/school">
+        <fa-icon [icon]="faSchool"></fa-icon>
+        <a class="nav-link" tabindex="-2">Escola</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+<div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
+  <div>
+    <nav class="nav flex-column">
+      <a class="nav-link active">
+        <fa-icon [icon]="faBox"></fa-icon>
+        Presentes do Takumi
+      </a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </nav>
+  </div>
+</div>

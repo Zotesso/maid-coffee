@@ -4,3 +4,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.row{
+  padding:40px;
+}
+
+.card{
+  margin-bottom: 2rem;
+}
+@media (min-width: 1000px)
+{
+  .card{
+    max-width: 30%;
+  }
+}

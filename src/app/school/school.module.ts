@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SchoolComponent } from './school.component';
 import { SchoolRoutingModule } from './school-routing.module';
-import { SchoolService } from './school.service';
 import { TasksComponent } from './tasks/tasks.component';
+import { ApiService } from '../shared/service/api.service';
 
 @NgModule({
   declarations: [
@@ -14,6 +14,6 @@ import { TasksComponent } from './tasks/tasks.component';
     CommonModule,
     SchoolRoutingModule
   ],
-  providers: [SchoolService],
+  providers: [ApiService],
 })
 export class SchoolModule { }

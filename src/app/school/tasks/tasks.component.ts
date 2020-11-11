@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SchoolTask } from 'src/app/shared/school-task.model';
-import { SchoolService } from '../school.service';
+import { SchoolTask } from 'src/app/shared/model/school-tasks.model';
+import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({
   selector: 'app-tasks',
@@ -11,10 +11,13 @@ export class TasksComponent implements OnInit {
 
   schoolTasks: SchoolTask[];
 
-  constructor(private schoolService: SchoolService) { }
+  constructor(private service: ApiService) { }
 
   ngOnInit(): void {
-    this.schoolTasks = this.schoolService.getTasks();
+    this.service.getSchoolTasks()
+     .subscribe(res => {
+       this.schoolTasks = res;
+     });
   }
 
 }

@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Validators, FormBuilder, AbstractControl } from '@angular/forms';
+import { validatePasswordValidation } from '../shared/validate-password.directive';
 import { ApiService } from '../shared/service/api.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
-  loginForm = this.formBuilder.group({
+  userForm = this.formBuilder.group({
     username: ['', [Validators.required,
                    Validators.minLength(5),
                    Validators.maxLength(15)]
@@ -43,19 +45,19 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.service.createUser(this.loginForm.value).subscribe(
+    this.service.createUser(this.userForm.value).subscribe(
       success => this.router.navigate(['/profile']),
-      error => console.error(this.loginForm.value)
+      error => console.error(this.userForm.value)
     );
   }
 
-  get username(): AbstractControl { return this.loginForm.get('username'); }
+  get username(): AbstractControl { return this.userForm.get('username'); }
 
-  get email(): AbstractControl { return this.loginForm.get('email'); }
+  get email(): AbstractControl { return this.userForm.get('email'); }
 
-  get password(): AbstractControl { return this.loginForm.get('password'); }
+  get password(): AbstractControl { return this.userForm.get('password'); }
 
-  get repeatPassword(): AbstractControl { return this.loginForm.get('repeatPassword'); }
+  get repeatPassword(): AbstractControl { return this.userForm.get('repeatPassword'); }
 
-  get charName(): AbstractControl { return this.loginForm.get('charName'); }
+  get charName(): AbstractControl { return this.userForm.get('charName'); }
 }

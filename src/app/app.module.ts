@@ -13,8 +13,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SchoolModule } from './school/school.module';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     NavbarComponent,
     HomeComponent,
+    RegisterComponent,
     LoginComponent
   ],
   imports: [
@@ -29,7 +30,6 @@ import { LoginComponent } from './login/login.component';
     CollapseModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    SchoolModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule

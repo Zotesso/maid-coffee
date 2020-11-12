@@ -6,7 +6,7 @@ import { TasksComponent } from './tasks/tasks.component';
 
 
 const schoolRoutes: Routes = [
-  {path: 'school', component: SchoolComponent, children : [
+  {path: '', component: SchoolComponent, children : [
     {path: 'tasks', component: TasksComponent}
   ]}
 ];

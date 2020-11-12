@@ -44,6 +44,7 @@ main{
   height: 3.5rem;
   width: 20rem;
   color: #fff;
+  margin-right: 10px;
 }
 
 @media (max-width: 500px)
@@ -57,8 +58,16 @@ main{
     opacity: 1;
     background-color: rgba(0,0,0,0.1);
   }
+  .footer{
+    align-items: center;
+    flex-direction: column;
+    bottom: 3px;
+  }
 
   .footer button{
-    margin-top: 20px;
+    margin-top: 6px;
+  }
+  .footer button:nth-of-type(2){
+    display: none;
   }
 }

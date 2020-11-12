@@ -1,0 +1,70 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+ <section>
+  <label>
+    Username:
+    <input type="text" formControlName="username">
+  </label>
+  <div class="error">
+    <div *ngIf="(username.touched || submitted) && username.errors?.required">
+      Insira um username.
+    </div>
+    <div *ngIf="(username.touched || submitted) && username.errors?.minlength">
+      Username muito pequeno.
+    </div>
+    <div *ngIf="(username.touched || submitted) && username.errors?.maxLength">
+      Username muito Grande.
+    </div>
+  </div>
+
+  <label>
+    Digite seu Email:
+    <input type="email" formControlName="email">
+  </label>
+  <div class="error" *ngIf="(email.touched || submitted) && email.errors?.required || email.errors?.pattern">
+    Insira um email válido.
+  </div>
+
+  <label>
+    Senha:
+    <input type="password" formControlName="password">
+  </label>
+  <div class="error">
+    <div *ngIf="(password.touched || submitted) && password.errors?.required">
+      Insira uma senha.
+    </div>
+    <div *ngIf="(password.touched || submitted) && password.errors?.minlength">
+      Senha muito Curta.
+    </div>
+  </div>
+
+  <label>
+    Repita a senha:
+    <input type="password" formControlName="repeatPassword">
+  </label>
+  <div class="error">
+    <div *ngIf="(repeatPassword.touched || submitted) && repeatPassword.errors?.required">
+      Insira a senha novamente.
+    </div>
+    <!-- <div *ngIf="(repeatPassword.touched || submitted) && repeatPassword.errors?.invalidPassword">
+      A senha deve ser igual!
+    </div> -->
+  </div>
+
+  <label>
+    Nome do seu Personagem:
+    <input type="text" formControlName="charName">
+  </label>
+  <div class="error">
+    <div *ngIf="(charName.touched || submitted) && charName.errors?.required">
+      Insira um Nome.
+    </div>
+    <div *ngIf="(charName.touched || submitted) && charName.errors?.minlength">
+      Nome muito pequeno.
+    </div>
+    <div *ngIf="(charName.touched || submitted) && charName.errors?.maxLength">
+      Nome muito Grande.
+    </div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+ </section>
+</form>

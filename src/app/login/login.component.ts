@@ -16,18 +16,9 @@ export class LoginComponent implements OnInit {
                    Validators.maxLength(15)]
               ],
 
-    email: ['', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
-
-    password: ['', [Validators.required,
+    hashedPassword: ['', [Validators.required,
                    Validators.minLength(5)]
               ],
-
-    repeatPassword: ['', Validators.required],
-
-    charName: ['', [Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(30)]
-    ],
   });
 
   submitted: boolean = false;
@@ -43,19 +34,18 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.service.createUser(this.loginForm.value).subscribe(
-      success => this.router.navigate(['/profile']),
+    this.service.authUser(this.loginForm.value).subscribe(
+      success => {
+        localStorage.setItem('accessToken', success.accessToken);
+        localStorage.setItem('charName', success.name);
+
+        this.router.navigate(['/profile']);
+      },
       error => console.error(this.loginForm.value)
     );
   }
 
   get username(): AbstractControl { return this.loginForm.get('username'); }
 
-  get email(): AbstractControl { return this.loginForm.get('email'); }
-
-  get password(): AbstractControl { return this.loginForm.get('password'); }
-
-  get repeatPassword(): AbstractControl { return this.loginForm.get('repeatPassword'); }
-
-  get charName(): AbstractControl { return this.loginForm.get('charName'); }
+  get hashedPassword(): AbstractControl { return this.loginForm.get('hashedPassword'); }
 }

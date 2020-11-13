@@ -16,6 +16,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './shared/service/auth.service';
+import { RegisterDeactivateGuard } from './guards/register-deactivate.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService, RegisterDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

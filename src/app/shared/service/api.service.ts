@@ -23,4 +23,8 @@ export class ApiService {
   createUser(user: any): Observable<any>{
     return this.http.post(`${this.configUrl}/user`, user).pipe(take(1));
   }
+
+  authUser(user: any): Observable<any>{
+    return this.http.post(`${this.configUrl}/login`, user).pipe(take(1));
+  }
 }

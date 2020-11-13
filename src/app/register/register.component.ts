@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     this.service.createUser(this.userForm.value).subscribe(
-      success => this.router.navigate(['/profile']),
+      success => this.router.navigate(['/login']),
       error => console.error(this.userForm.value)
     );
   }

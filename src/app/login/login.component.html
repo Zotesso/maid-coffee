@@ -17,54 +17,18 @@
    </div>
 
    <label>
-     Digite seu Email:
-     <input type="email" formControlName="email">
-   </label>
-   <div class="error" *ngIf="(email.touched || submitted) && email.errors?.required || email.errors?.pattern">
-     Insira um email válido.
-   </div>
-
-   <label>
      Senha:
-     <input type="password" formControlName="password">
+     <input type="hashedPassword" formControlName="hashedPassword">
    </label>
    <div class="error">
-     <div *ngIf="(password.touched || submitted) && password.errors?.required">
+     <div *ngIf="(hashedPassword.touched || submitted) && hashedPassword.errors?.required">
        Insira uma senha.
      </div>
-     <div *ngIf="(password.touched || submitted) && password.errors?.minlength">
+     <div *ngIf="(hashedPassword.touched || submitted) && hashedPassword.errors?.minlength">
        Senha muito Curta.
      </div>
    </div>
 
-   <label>
-     Repita a senha:
-     <input type="password" formControlName="repeatPassword">
-   </label>
-   <div class="error">
-     <div *ngIf="(repeatPassword.touched || submitted) && repeatPassword.errors?.required">
-       Insira a senha novamente.
-     </div>
-     <!-- <div *ngIf="(repeatPassword.touched || submitted) && repeatPassword.errors?.invalidPassword">
-       A senha deve ser igual!
-     </div> -->
-   </div>
-
-   <label>
-     Nome do seu Personagem:
-     <input type="text" formControlName="charName">
-   </label>
-   <div class="error">
-     <div *ngIf="(charName.touched || submitted) && charName.errors?.required">
-       Insira um Nome.
-     </div>
-     <div *ngIf="(charName.touched || submitted) && charName.errors?.minlength">
-       Nome muito pequeno.
-     </div>
-     <div *ngIf="(charName.touched || submitted) && charName.errors?.maxLength">
-       Nome muito Grande.
-     </div>
-   </div>
-   <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
   </section>
  </form>

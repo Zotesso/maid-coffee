@@ -24,13 +24,13 @@ export class RegisterComponent implements OnInit {
                    Validators.minLength(5)]
               ],
 
-    repeatPassword: ['', Validators.required],
+    repeatPassword: ['', [Validators.required]],
 
     charName: ['', [Validators.required,
       Validators.minLength(3),
       Validators.maxLength(30)]
     ],
-  });
+  }, {validator: validatePasswordValidation});
 
   submitted: boolean = false;
 

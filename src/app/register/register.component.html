@@ -42,12 +42,12 @@
     <input type="password" formControlName="repeatPassword">
   </label>
   <div class="error">
-    <div *ngIf="(repeatPassword.touched || submitted) && repeatPassword.errors?.required">
+    <div *ngIf="(repeatPassword.touched || submitted || repeatPassword.dirty) && repeatPassword.errors?.required">
       Insira a senha novamente.
     </div>
-    <!-- <div *ngIf="(repeatPassword.touched || submitted) && repeatPassword.errors?.invalidPassword">
-      A senha deve ser igual!
-    </div> -->
+    <div *ngIf="(repeatPassword.touched || submitted || repeatPassword.dirty) && userForm.errors?.invalidPassword">
+      As senha devem ser iguais!
+    </div>
   </div>
 
   <label>

@@ -9,10 +9,15 @@ import { ApiService } from 'src/app/shared/service/api.service';
 })
 export class TasksComponent implements OnInit {
 
+  schoolTasks: SchoolTask[];
+
   constructor(private service: ApiService) { }
 
   ngOnInit(): void {
-
+    this.service.getSchoolTasks()
+     .subscribe(res => {
+       this.schoolTasks = res;
+     });
   }
 
 }

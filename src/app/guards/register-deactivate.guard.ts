@@ -13,8 +13,8 @@ export class RegisterDeactivateGuard implements CanDeactivate<RegisterComponent>
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      if (component.email.markAsTouched || component.charName.markAsTouched
-        || component.username.markAsTouched || component.password.markAsTouched){
+      if (component.email.markAsDirty || component.charName.markAsDirty
+        || component.username.markAsDirty || component.password.markAsDirty){
           return confirm('Tem certeza que deseja sair? As modificações não serão salvas!');
       }
   }

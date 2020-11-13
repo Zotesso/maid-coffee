@@ -6,21 +6,25 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RegisterDeactivateGuard } from './guards/register-deactivate.guard';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
   {path: 'school',
     loadChildren: () => import('./school/school.module').then(m => m.SchoolModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   {path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   {path: 'register', component: RegisterComponent,
     canDeactivate: [RegisterDeactivateGuard]
   },
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: '', component: HomeComponent},
+  {path: '**', component: NotfoundComponent}
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ import { AuthService } from './shared/service/auth.service';
 import { RegisterDeactivateGuard } from './guards/register-deactivate.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AlertModalComponent } from './shared/components/alert-modal/alert-modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,13 @@ import { AlertModalComponent } from './shared/components/alert-modal/alert-modal
     BrowserAnimationsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    ModalModule.forRoot(),
     HttpClientModule,
     AppRoutingModule
   ],
   providers: [AuthGuard, AuthService, RegisterDeactivateGuard],
+  exports: [AlertModalComponent],
+  entryComponents: [AlertModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,13 +25,13 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]=""> <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item" routerLink="/profile">
+      <li class="nav-item" routerLink="/profile/character">
         <fa-icon [icon]="faUser"></fa-icon>
         <a class="nav-link">Meu Perfil</a>
       </li>
       <li class="nav-item">
-        <fa-icon [icon]="faMap"></fa-icon>
-        <a class="nav-link" tabindex="-1">Missões</a>
+        <fa-icon [icon]="faCoffee"></fa-icon>
+        <a class="nav-link" tabindex="-1">Café Maido</a>
       </li>
       <li class="nav-item" routerLink="/school">
         <fa-icon [icon]="faSchool"></fa-icon>
@@ -40,17 +40,24 @@
     </ul>
   </div>
 
+  <div class="logout" *ngIf="authService.authenticatedUser === true" (click)="handleLogout()">
+    <a>Sair</a>
+    <fa-icon [icon]="faSignOutAlt"></fa-icon>
+  </div>
+
 </nav>
 <div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
   <div>
     <nav class="nav flex-column">
-      <a class="nav-link active">
+      <a class="nav-link active" routerLink="/profile/gifts">
         <fa-icon [icon]="faBox"></fa-icon>
         Presentes do Takumi
       </a>
+      <a class="nav-link active" routerLink="/profile/ranking">
+        <fa-icon [icon]="faTrophy"></fa-icon>
+        Ranking
+      </a>
       <a class="nav-link" href="#">Link</a>
-      <a class="nav-link" href="#">Link</a>
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
     </nav>
   </div>
 </div>

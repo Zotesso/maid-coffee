@@ -1,0 +1,23 @@
+<section class="d-flex justify-content-center">
+  <div class="shadow p-3 mb-5 bg-white rounded d-flex flex-column
+  flex-md-row flex-sm-column
+  align-items-center" *ngIf="profile$ | async as char; else loadingError">
+    <img src="../../../assets/char.jpg" alt="Foto do seu Personagem">
+    <header class="d-flex flex-column align-items-center">
+      <p>Nome: {{char.name}}</p>
+      <p>Level: {{char.level}}</p>
+      <p>Nível de conhecimento: {{char.knowledge}}</p>
+      <p>Nível de popularidade: {{char.popularity}}</p>
+      <p>Energia atual: {{char.energy}}</p>
+    </header>
+  </div>
+</section>
+
+<ng-template #loadingError>
+  <div *ngIf="error$ | async; loading">
+    Erro ao carregar informações, tente novamente!
+  </div>
+  <ng-template #loading>
+    <span>Loading stuff...</span>
+  </ng-template>
+</ng-template>

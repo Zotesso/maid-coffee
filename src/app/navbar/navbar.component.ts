@@ -1,28 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges} from '@angular/core';
 
-import { faMap, faUser, faSchool, faFan, faBox } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faUser, faSchool, faFan, faBox, faSignOutAlt, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../shared/service/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit{
 
   isCollapsed: boolean = false;
   navbarOpen: boolean = false;
-  faMap = faMap;
+  faCoffee = faCoffee;
   faUser = faUser;
   faSchool = faSchool;
   faFan = faFan;
   faBox = faBox;
+  faSignOutAlt = faSignOutAlt;
+  faTrophy = faTrophy;
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   toogleNavbar(): void {
     this.navbarOpen = !this.navbarOpen;
+  }
+
+  handleLogout(): void {
+    this.authService.logout();
   }
 }

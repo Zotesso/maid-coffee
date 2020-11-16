@@ -44,6 +44,20 @@ a{
   align-items: center;
 }
 
+.logout{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 30px;
+  width: 10%;
+  cursor: pointer;
+}
+
+.logout a{
+  text-decoration: none;
+}
+
+
 @media (max-width: 960px)
 {
   .navbar-nav{
@@ -51,5 +65,13 @@ a{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+
+  .navbar-brand{
+    font-size: 1.4rem;
+  }
+
+  .logout a{
+    display: none;
   }
 }

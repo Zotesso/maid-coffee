@@ -1,4 +1,7 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <p>Ainda não tem uma conta? Cadastre-se <a class="primary" routerLink="/register">clicando aqui!</a> </p>
+
   <section>
    <label>
      Username:
@@ -29,6 +32,6 @@
      </div>
    </div>
 
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+    <button type="submit" [disabled]="!loginForm.valid">Logar</button>
   </section>
  </form>

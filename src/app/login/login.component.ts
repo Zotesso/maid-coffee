@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Validators, FormBuilder, AbstractControl } from '@angular/forms';
 import { ApiService } from '../shared/service/api.service';
 import { Router } from '@angular/router';
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('accessToken', success.accessToken);
         localStorage.setItem('charName', success.name);
 
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/profile/character']);
       },
       error => console.error(this.loginForm.value)
     );

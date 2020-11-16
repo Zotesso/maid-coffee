@@ -20,6 +20,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/service/auth.service';
 import { RegisterDeactivateGuard } from './guards/register-deactivate.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AlertModalComponent } from './shared/components/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule,

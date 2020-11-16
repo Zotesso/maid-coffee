@@ -4,11 +4,11 @@
   align-items-center" *ngIf="profile$ | async as char; else loadingError">
     <img src="../../../assets/char.jpg" alt="Foto do seu Personagem">
     <header class="d-flex flex-column align-items-center">
-      <p>Nome: {{char.name}}</p>
-      <p>Level: {{char.level}}</p>
-      <p>Nível de conhecimento: {{char.knowledge}}</p>
-      <p>Nível de popularidade: {{char.popularity}}</p>
-      <p>Energia atual: {{char.energy}}</p>
+      <p>Nome: <span class="text-primary"> {{char.name}} </span></p>
+      <p>Level: <span class="text-primary"> {{char.level}} </span></p>
+      <p>Nível de conhecimento: <span class="text-primary"> {{char.knowledge}} </span></p>
+      <p>Nível de popularidade: <span class="text-primary"> {{char.popularity}} </span></p>
+      <p>Energia atual:<span class="text-primary"> {{char.energy}} </span></p>
     </header>
   </div>
 </section>

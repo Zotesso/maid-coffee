@@ -1,1 +1,9 @@
-<p>ranking works!</p>
+<div class="list-group">
+  <a class="list-group-item list-group-item-action active">
+    Ranking
+  </a>
+  <a *ngFor="let char of ranking"
+  class="list-group-item list-group-item-action">
+  Nome: {{char.name }} | Level: {{char.level}}
+  </a>
+</div>

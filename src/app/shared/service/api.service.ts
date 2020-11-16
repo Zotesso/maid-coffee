@@ -8,6 +8,7 @@ import { SchoolTask } from '../model/school-tasks.model';
 
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { Ranking } from '../model/ranking.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,13 @@ export class ApiService {
 
   getCharInfo(): Observable<Char>{
     return this.http.get<Char>(`${this.configUrl}/char/${localStorage.getItem('charName')}`);
+  }
+
+  doTask(taskId: number): Observable<any> {
+    return this.http.put(`${this.configUrl}/char/doTask/${localStorage.getItem('charName')}/${taskId}`, {}).pipe(take(1));
+  }
+
+  getRanking(): Observable<Ranking[]> {
+    return this.http.get<Ranking[]>(`${this.configUrl}/ranking`).pipe(take(1));
   }
 }

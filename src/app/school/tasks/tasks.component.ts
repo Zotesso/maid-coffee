@@ -45,4 +45,15 @@ export class TasksComponent implements OnInit, OnDestroy {
   handleError(): void{
     this.alertService.showAlertDanger('Erro ao carregar tasks, tente novamente!');
   }
+
+  handleDoTask(taskId: number): void{
+    this.service.doTask(taskId).subscribe(
+      (res) => {
+        this.alertService.showAlertSuccess('Task Completa');
+      },
+      (error) => {
+        this.alertService.showAlertDanger('Erro ao realizar Task');
+      }
+    );
+  }
 }

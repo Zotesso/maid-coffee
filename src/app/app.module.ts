@@ -45,7 +45,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   ],
   providers: [AuthGuard, AuthService, RegisterDeactivateGuard],
   exports: [AlertModalComponent],
-  entryComponents: [AlertModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

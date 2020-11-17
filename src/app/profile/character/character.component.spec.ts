@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CharacterComponent } from './character.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CharacterComponent', () => {
   let component: CharacterComponent;
@@ -8,7 +9,8 @@ describe('CharacterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterComponent ]
+      declarations: [ CharacterComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });
@@ -22,4 +24,5 @@ describe('CharacterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

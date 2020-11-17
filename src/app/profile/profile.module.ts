@@ -23,7 +23,7 @@ import { RankingComponent } from './ranking/ranking.component';
     ProfileRoutingModule
   ],
   providers: [
-    ApiService
+
   ],
 })
 export class ProfileModule { }

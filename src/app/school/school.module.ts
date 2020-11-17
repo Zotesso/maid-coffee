@@ -16,6 +16,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ModalModule,
     SchoolRoutingModule
   ],
-  providers: [ApiService],
+  providers: [],
 })
 export class SchoolModule { }

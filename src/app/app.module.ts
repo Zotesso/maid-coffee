@@ -22,6 +22,7 @@ import { RegisterDeactivateGuard } from './guards/register-deactivate.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AlertModalComponent } from './shared/components/alert-modal/alert-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ApiService } from './shared/service/api.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard, AuthService, RegisterDeactivateGuard],
+  providers: [
+    AuthGuard,
+    AuthService,
+    RegisterDeactivateGuard,
+    ApiService
+  ],
   exports: [AlertModalComponent],
   bootstrap: [AppComponent]
 })

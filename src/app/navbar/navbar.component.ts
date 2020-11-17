@@ -1,14 +1,17 @@
-import { Component, OnInit, OnChanges} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { faCoffee, faUser, faSchool, faFan, faBox, faSignOutAlt, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faUser, faSchool, faFan, faBox, faSignOutAlt, faTrophy, faBolt } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../shared/service/auth.service';
+import { ApiService } from '../shared/service/api.service';
+import { Observable, Subscription } from 'rxjs';
+import { Char } from '../shared/model/char.model';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit, OnDestroy {
 
   isCollapsed: boolean = false;
   navbarOpen: boolean = false;
@@ -19,10 +22,25 @@ export class NavbarComponent implements OnInit{
   faBox = faBox;
   faSignOutAlt = faSignOutAlt;
   faTrophy = faTrophy;
+  faBolt = faBolt;
 
-  constructor(public authService: AuthService) { }
+  charEnergy: number = 0;
+  sub: Subscription;
+
+  constructor(
+    public authService: AuthService,
+    public apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
+    this.sub = this.apiService.getAsObservable().subscribe(res => {
+      this.charEnergy = res.energy;
+    });
+
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   toogleNavbar(): void {

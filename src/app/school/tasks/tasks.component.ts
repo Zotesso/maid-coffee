@@ -50,6 +50,7 @@ export class TasksComponent implements OnInit, OnDestroy {
     this.service.doTask(taskId).subscribe(
       (res) => {
         this.alertService.showAlertSuccess('Task Completa');
+        this.service.getCharInfo();
       },
       (error) => {
         this.alertService.showAlertDanger('Erro ao realizar Task');

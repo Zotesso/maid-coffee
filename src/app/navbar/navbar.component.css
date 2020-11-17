@@ -55,6 +55,7 @@ a{
 
 .logout a{
   text-decoration: none;
+  margin-right: 10px;
 }
 
 
@@ -71,7 +72,16 @@ a{
     font-size: 1.4rem;
   }
 
-  .logout a{
+  .logout a:nth-last-of-type(1){
     display: none;
+  }
+
+}
+
+@media (max-width: 370px)
+{
+
+  .logout{
+    margin-left: 45%;
   }
 }

@@ -41,6 +41,9 @@
   </div>
 
   <div class="logout" *ngIf="authService.authenticatedUser === true" (click)="handleLogout()">
+    <fa-icon [icon]="faBolt"></fa-icon>
+    <a>{{ charEnergy }}</a>
+
     <a>Sair</a>
     <fa-icon [icon]="faSignOutAlt"></fa-icon>
   </div>

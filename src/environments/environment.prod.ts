@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  maidUrl: 'https://maidcoffee.herokuapp.com'
 };

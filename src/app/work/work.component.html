@@ -1,0 +1,19 @@
+<section class="row justify-content-around">
+  <div class="card col-md-4 col-sm-6" *ngFor="let task of workTasks">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <img
+    src="https://images.unsplash.com/flagged/photo-1572951351615-0c892383dbe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=741&q=80"
+    class="card-img-top" alt="...">
+      <p class="card-text">
+        Descrição: {{ task.description }} <br>
+        Energia Necessária: {{ task.energy }}
+        <br>
+        <span class="text-danger">Recompensas:</span> <br>
+        <span class="text-danger">-Conhecimento:</span> {{ task.knowledge }} <br>
+        <span class="text-danger">-Popularidade:</span> {{ task.popularity }}
+      </p>
+      <button type="button" class="btn btn-outline-danger" (click)="handleDoTask(task.id)">Realizar</button>
+    </div>
+  </div>
+</section>

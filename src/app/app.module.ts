@@ -20,9 +20,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/service/auth.service';
 import { RegisterDeactivateGuard } from './guards/register-deactivate.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { AlertModalComponent } from './shared/components/alert-modal/alert-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ApiService } from './shared/service/api.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,8 +31,7 @@ import { ApiService } from './shared/service/api.service';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    NotfoundComponent,
-    AlertModalComponent
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +41,7 @@ import { ApiService } from './shared/service/api.service';
     ReactiveFormsModule,
     ModalModule.forRoot(),
     HttpClientModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [
@@ -50,7 +50,7 @@ import { ApiService } from './shared/service/api.service';
     RegisterDeactivateGuard,
     ApiService
   ],
-  exports: [AlertModalComponent],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

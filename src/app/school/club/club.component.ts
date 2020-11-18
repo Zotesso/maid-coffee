@@ -1,24 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
 import { Task } from 'src/app/shared/model/school-tasks.model';
+import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/shared/service/api.service';
-import { Subscription, empty } from 'rxjs';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { AlertModalComponent } from 'src/app/shared/components/alert-modal/alert-modal.component';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-import { catchError } from 'rxjs/operators';
 import { AlertService } from 'src/app/shared/service/alert-modal.service';
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  selector: 'app-club',
+  templateUrl: './club.component.html',
+  styleUrls: ['./club.component.css']
 })
-export class TasksComponent implements OnInit, OnDestroy {
+export class ClubComponent implements OnInit, OnDestroy {
 
-  bsModalRef: BsModalRef;
-
-  schoolTasks: Task[];
+  clubTasks: Task[];
   sub: Subscription;
 
   constructor(
@@ -27,10 +20,10 @@ export class TasksComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
-    this.sub = this.service.getSchoolTasks()
+    this.sub = this.service.getClubTasks()
      .subscribe(
        res => {
-       this.schoolTasks = res;
+       this.clubTasks = res;
       },
       error => {
         this.handleError();
@@ -49,7 +42,7 @@ export class TasksComponent implements OnInit, OnDestroy {
   handleDoTask(taskId: number): void{
     this.service.doTask(taskId).subscribe(
       (res) => {
-        this.alertService.showAlertSuccess(res);
+        this.alertService.showAlertSuccess('Task Completa');
         this.service.getCharInfo();
       },
       (error) => {

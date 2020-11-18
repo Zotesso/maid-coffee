@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { TasksComponent } from './tasks.component';
-import { SchoolTask } from 'src/app/shared/model/school-tasks.model';
+import { Task } from 'src/app/shared/model/school-tasks.model';
 import { By } from '@angular/platform-browser';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -26,7 +26,7 @@ describe('TasksComponent', () => {
     fixture = TestBed.createComponent(TasksComponent);
     component = fixture.componentInstance;
 
-    const schoolTasks: SchoolTask[] = [
+    const schoolTasks: Task[] = [
       {
         id: 1,
         title: 'Title',

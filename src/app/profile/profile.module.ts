@@ -8,6 +8,7 @@ import { ApiService } from '../shared/service/api.service';
 import { CharacterComponent } from './character/character.component';
 import { GiftsComponent } from './gifts/gifts.component';
 import { RankingComponent } from './ranking/ranking.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -20,6 +21,7 @@ import { RankingComponent } from './ranking/ranking.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ProfileRoutingModule
   ],
   providers: [

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { faCoffee, faUser, faSchool, faFan, faBox, faSignOutAlt, faTrophy, faBolt } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faUser, faSchool, faFan, faBox, faSignOutAlt, faTrophy, faBolt, faLaptopHouse } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../shared/service/auth.service';
 import { ApiService } from '../shared/service/api.service';
 import { Observable, Subscription } from 'rxjs';
@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   faSignOutAlt = faSignOutAlt;
   faTrophy = faTrophy;
   faBolt = faBolt;
+  faLaptopHouse = faLaptopHouse;
 
   charEnergy: number = 0;
   sub: Subscription;

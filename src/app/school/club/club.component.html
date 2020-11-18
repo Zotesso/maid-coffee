@@ -1,0 +1,21 @@
+<section class="row justify-content-around">
+  <div class="card col-md-4 col-sm-6" *ngFor="let task of clubTasks">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <img
+    src="https://images.unsplash.com/photo-1585637071663-799845ad5212?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    class="card-img-top" alt="...">
+      <p class="card-text">
+        Descrição: {{ task.description }} <br>
+
+        <a *ngIf="task.energy < 0">Energia Recuperada: {{ task.energy | absoluteValue }}</a>
+        <a *ngIf="task.energy >= 0">Energia Necessária: {{ task.energy }}</a>
+        <br>
+        Recompensas: <br>
+         -Conhecimento: {{ task.knowledge }} <br>
+         -Popularidade: {{ task.popularity }}
+      </p>
+      <button type="button" class="btn btn-outline-success" (click)="handleDoTask(task.id)">Realizar</button>
+    </div>
+  </div>
+</section>

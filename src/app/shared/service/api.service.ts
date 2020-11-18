@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 import { Char } from '../model/char.model';
-import { SchoolTask } from '../model/school-tasks.model';
+import { Task } from '../model/school-tasks.model';
 
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -39,8 +39,16 @@ export class ApiService {
 
   private charInfo = this.http.get<Char>(`${this.configUrl}/char/${localStorage.getItem('charName')}`, this.header);
 
-  getSchoolTasks(): Observable<SchoolTask[]> {
-    return this.http.get<SchoolTask[]>(`${this.configUrl}/tasks/school`);
+  getSchoolTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.configUrl}/tasks/school`);
+  }
+
+  getWorkTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.configUrl}/tasks/work`);
+  }
+
+  getClubTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.configUrl}/tasks/club`);
   }
 
   createUser(user: any): Observable<any> {

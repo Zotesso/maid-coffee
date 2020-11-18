@@ -14,6 +14,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canLoad: [AuthGuard]
   },
+  {path: 'work',
+    loadChildren: () => import('./work/work.module').then(m => m.WorkModule),
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
+  },
   {path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AuthGuard],

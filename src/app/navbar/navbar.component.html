@@ -51,7 +51,7 @@
 </nav>
 <div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
   <div>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" (click)="isCollapsed = !isCollapsed">
       <a class="nav-link active" routerLink="/profile/gifts">
         <fa-icon [icon]="faBox"></fa-icon>
         Presentes do Takumi
@@ -60,7 +60,10 @@
         <fa-icon [icon]="faTrophy"></fa-icon>
         Ranking
       </a>
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">
+        <fa-icon [icon]="faLaptopHouse"></fa-icon>
+        Clube (Aproveite pra descansar)
+      </a>
     </nav>
   </div>
 </div>

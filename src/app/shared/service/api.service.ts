@@ -23,9 +23,10 @@ export class ApiService {
   };
 
   constructor(private http: HttpClient) {
-    this.charInfo.subscribe(res => {
+   /*  this.charInfo.subscribe(res => {
       this.char.next(res);
-    });
+    }); */
+    this.getCharInfo();
   }
 
   private char: BehaviorSubject<Char> = new BehaviorSubject<Char>({
@@ -36,8 +37,6 @@ export class ApiService {
     level: 1,
     popularity: 1
   });
-
-  private charInfo = this.http.get<Char>(`${this.configUrl}/char/${localStorage.getItem('charName')}`, this.header);
 
   getSchoolTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(`${this.configUrl}/tasks/school`);
@@ -60,9 +59,11 @@ export class ApiService {
   }
 
   getCharInfo(): void {
-    if (localStorage.getItem('charName')) {
-      this.charInfo.subscribe((res) => {
-        this.char.next(res);
+    if (localStorage.getItem('charName') && localStorage.getItem('accessToken') && this.header.headers.get('Authorization') !== 'Bearer null') {
+      const promise = new Promise((resolve, reject) => {
+        this.http.get<Char>(`${this.configUrl}/char/${localStorage.getItem('charName')}`, this.header)
+          .toPromise()
+          .then(res => this.char.next(res));
       });
     }
   }

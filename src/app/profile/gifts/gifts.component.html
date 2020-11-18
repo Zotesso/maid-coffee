@@ -1,1 +1,17 @@
-<p>gifts works!</p>
+<section class="d-flex flex-column justify-content-center align-items-center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <span class="text-danger d-flex flex-column align-items-center">
+        Clique para Abrir
+      <fa-icon [icon]="faGift"></fa-icon>
+      </span>
+    </div>
+    <div class="card-back">
+      <span class="text-danger d-flex flex-column align-items-center">
+        Vocâ ganhou o presente número: {{ giftNumber }}
+      <fa-icon [icon]="faGift"></fa-icon>
+        Quem sabe na próxima versão.
+      </span>
+    </div>
+  </div>
+</section>

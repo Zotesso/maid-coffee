@@ -1,26 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
 
-  <button type="button" class="btn btn-light menu-opts" (click)="isCollapsed = !isCollapsed"
-    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
-    <fa-icon [icon]="faFan" style="color: #333;"></fa-icon>
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+  <input type="checkbox" id="menu-hamburguer-checkbox" (change)="isCollapsed = !isCollapsed" [checked]="isCollapsed">
+  <label for="menu-hamburguer-checkbox">
+   <!--  <button type="button" class="btn menu-opts" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+      <span class="hamburguer"></span>
+    </button> -->
+    <div class="menu-opts">
+      <span class="hamburguer"></span>
+    </div>
+  </label>
   <a class="navbar-brand" routerLink="">Maid Coffee</a>
 
-  <button
-  class="navbar-toggler"
-  type="button"
-  (click)="toogleNavbar()"
-  >
+  <button class="navbar-toggler" type="button" (click)="toogleNavbar()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div
-  class="collapse navbar-collapse"
-  id="navbarTogglerDemo02"
-  [ngClass]="{ 'show': navbarOpen}"
-  >
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02" [ngClass]="{ 'show': navbarOpen}">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-3">
       <li class="nav-item active">
         <a class="nav-link" [routerLink]=""> <span class="sr-only">(current)</span></a>
@@ -49,21 +45,20 @@
   </div>
 
 </nav>
-<div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
-  <div>
-    <nav class="nav flex-column" (click)="isCollapsed = !isCollapsed">
-      <a class="nav-link active" routerLink="/profile/gifts">
-        <fa-icon [icon]="faBox"></fa-icon>
-        Presentes do Takumi
-      </a>
-      <a class="nav-link active" routerLink="/profile/ranking">
-        <fa-icon [icon]="faTrophy"></fa-icon>
-        Ranking
-      </a>
-      <a class="nav-link" routerLink="/school/club">
-        <fa-icon [icon]="faLaptopHouse"></fa-icon>
-        Clube (Aproveite pra descansar)
-      </a>
-    </nav>
-  </div>
+
+<div (click)="isCollapsed = !isCollapsed">
+  <nav class="nav flex-column" [ngClass]="{'visible': isCollapsed}">
+    <a class="nav-link active" routerLink="/profile/gifts">
+      <fa-icon [icon]="faBox"></fa-icon>
+      Presentes do Takumi
+    </a>
+    <a class="nav-link active" routerLink="/profile/ranking">
+      <fa-icon [icon]="faTrophy"></fa-icon>
+      Ranking
+    </a>
+    <a class="nav-link" routerLink="/school/club">
+      <fa-icon [icon]="faLaptopHouse"></fa-icon>
+      Clube (Aproveite pra descansar)
+    </a>
+  </nav>
 </div>

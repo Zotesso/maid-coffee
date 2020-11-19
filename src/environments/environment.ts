@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  maidUrl: 'http://localhost:8090'
+  maidUrl: 'https://maidcoffee.herokuapp.com'
 };
 
 /*

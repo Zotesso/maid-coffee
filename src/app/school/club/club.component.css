@@ -11,6 +11,7 @@
 
 .card{
   margin-bottom: 2rem;
+  position: unset;
 }
 @media (min-width: 1000px)
 {

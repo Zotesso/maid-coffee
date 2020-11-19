@@ -31,17 +31,97 @@ a{
 
 .flex-column{
   z-index: 12;
-  background-color: rgb(54, 53, 53);
-  height: 90vh;
-  width: 100%;
-  max-width: 20rem;
-  max-height: 100vh;
   position: absolute;
+  background-color:transparent;
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: box-shadow .25s 1s cubic-bezier(0, 1.07, 0, 1.22);
+}
+
+.flex-column a{
+  color: #000 !important;
+}
+
+.flex-column .ng-fa-icon{
+  color: #000 !important;
+}
+.flex-column.visible{
+  display: flex;
+  opacity: 1;
 }
 
 .menu-opts{
+  z-index: 299;
   display: flex;
   align-items: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 0 0 0 #fff;
+  background-color: #fff;
+  cursor: pointer;
+  transition: box-shadow 1.1s cubic-bezier(.19, 1, .22, 1);
+
+}
+
+.menu-opts:hover{
+  box-shadow: 0 0 0 8px #fff, 0 0 0 8px #fff;
+}
+
+.menu-opts .hamburguer {
+  position: relative;
+  display: block;
+  background: #000;
+  width: 30px;
+  height: 2px;
+  left: 15px;
+  transition: .5s ease-in-out;
+}
+
+#menu-hamburguer-checkbox{
+  display: none;
+}
+
+.menu-opts .hamburguer:before, .hamburguer:after {
+  content: '';
+  display: block;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: .5s ease-in-out;
+}
+
+.menu-opts .hamburguer:before{
+  top: -10px;
+}
+
+.menu-opts .hamburguer:after{
+  bottom: -10px;
+}
+
+
+#menu-hamburguer-checkbox:checked ~ label .menu-opts{
+  box-shadow: 0 0 0 110vw #fff, 0 0 0 100vh #fff;
+}
+
+#menu-hamburguer-checkbox:checked ~ label .hamburguer{
+  transform: rotate(45deg);
+}
+
+
+#menu-hamburguer-checkbox:checked ~ label .hamburguer:before{
+  transform: rotate(90deg);
+  top:0;
+}
+
+#menu-hamburguer-checkbox:checked ~ label .hamburguer:after{
+  transform: rotate(90deg);
+  bottom: 0;
 }
 
 .logout{
